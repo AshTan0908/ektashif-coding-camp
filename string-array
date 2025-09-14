@@ -1,0 +1,44 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+  // String creation
+  string message1 = "Hello, ";
+  string message2 = "World!";
+
+  // Concatenation (using + operator)
+  string fullMessage = message1 + message2;
+  cout << "Full message: " << fullMessage << endl;
+
+  // String size (using length() function)
+  int messageLength = fullMessage.length();
+  cout << "Message length: " << messageLength << endl;
+
+  // Find a character (using find() function)
+  int index = fullMessage.find("World");
+  if (index != string::npos) { // npos is returned if not found
+    cout << "\"World\" found at index: " << index << endl;
+  } else {
+    cout << "\"World\" not found in the string." << endl;
+  }
+
+  // Modify a character (using at() function)
+  fullMessage.at(7) = '!'; // Modify the 8th character (index 7)
+  cout << "Modified message: " << fullMessage << endl;
+
+  // Extract a substring (using substr() function)
+  string subString = fullMessage.substr(0, 7); // Extract first 7 characters
+  cout << "Substring: " << subString << endl;
+
+  return 0;
+}

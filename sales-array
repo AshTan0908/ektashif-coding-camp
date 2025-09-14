@@ -1,0 +1,61 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  const int NUM_PRODUCTS = 3; // Number of products
+  const int NUM_MONTHS = 4;   // Number of months (e.g., April-July)
+
+  // Declare a 2D integer array to store sales data
+  int salesData[NUM_PRODUCTS][NUM_MONTHS] = {
+      {100, 120, 150, 180}, // Sales figures for product 1 //Row 1
+      {200, 250, 300, 280}, // Sales figures for product 2 // Row2
+      {80, 100, 110, 130}   // Sales figures for product 3
+  };
+
+  // Calculate total sales for each product
+  int productTotals[NUM_PRODUCTS] = {0};
+  for (int i = 0; i < NUM_PRODUCTS; ++i) { //Row wise increment
+    for (int j = 0; j < NUM_MONTHS; ++j) { //Column wise increment
+      productTotals[i] += salesData[i][j];
+    }
+  }
+
+  // Find the product with the highest total sales
+  int highestSalesProduct = 0, maxSales = productTotals[0];
+  for (int i = 1; i < NUM_PRODUCTS; ++i) {
+    if (productTotals[i] > maxSales) {
+      maxSales = productTotals[i];
+      highestSalesProduct = i;
+    }
+  }
+
+  // Display results
+  cout << "Sales Data Analysis:" << endl;
+
+  // Print the sales data table (optional)
+  for (int i = 0; i < NUM_PRODUCTS; ++i) {
+    cout << "Product " << i + 1 << ": ";
+    for (int j = 0; j < NUM_MONTHS; ++j) {
+      cout << salesData[i][j] << " ";
+    }
+    cout << endl;
+  }
+
+  cout << "\nTotal Sales per Product:" << endl;
+  for (int i = 0; i < NUM_PRODUCTS; ++i) {
+    cout << "Product " << i + 1 << ": " << productTotals[i] << endl;
+  }
+
+  cout << "\nProduct with Highest Total Sales: Product " << highestSalesProduct + 1 << endl;
+
+  return 0;
+}
